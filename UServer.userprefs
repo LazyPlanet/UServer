@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="UServer/UServer.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UServer/Logic/Player.cs">
+    <Files>
+      <File FileName="UServer/Logic/Player.cs" Line="102" Column="10" />
+      <File FileName="UServer/Network/Session.cs" Line="52" Column="18" />
+      <File FileName="UServer/Network/SessiongManager.cs" Line="1" Column="1" />
+      <File FileName="UServer/Main.cs" Line="6" Column="2" />
+      <File FileName="UServer/Logic/LogicServer.cs" Line="12" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

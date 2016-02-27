@@ -1,0 +1,205 @@
+package Share_Common;
+
+//----------------------------------------------------------------------------------------------------------	
+// 服务器和客户端公用数据
+// 
+// Client<->Server : Share
+//
+//----------------------------------------------------------------------------------------------------------
+
+// 三维坐标
+message Stuff_Vector3 {
+	optional float x = 1;
+    optional float y = 2;
+    optional float z = 3;
+}
+
+enum Creature_Variety {
+	CV_Null = 1;
+	CV_Player = 2;
+	CV_NPC = 3;
+}
+
+//----------------------------------------------------------------------------------------------------------	
+// 服务器存储数据
+// 
+// Server
+//
+//----------------------------------------------------------------------------------------------------------
+
+enum Server_State {
+	SS_Starting = 1;
+	SS_Started = 2;
+	SS_Working = 3;
+	SS_Closing = 4;
+	SS_Closed = 5;
+}
+
+// 消息队列内容
+message Stuff_Message {
+
+	enum MC_Type {
+
+		MC_EnterScene = 1;
+	}
+	
+	optional MC_Type type_t = 1;
+    optional int32 source = 2;
+    optional int32 target = 3;
+	repeated int32 paras = 4;
+}
+
+// 消息队列
+message Stuff_Message_Queue {
+	repeated Stuff_Message contents = 1;
+}
+
+// 包裹物品
+message Stuff_Item {
+	required int32 ItemId = 1;
+	optional Item_Type type_t = 2;
+	optional bool Bind = 3;
+	optional int32 BaseId = 4;
+	optional int32 AddonId = 5;
+}
+
+// 包裹
+message Stuff_Inventory {
+	repeated Stuff_Item Items = 1;
+}
+
+//----------------------------------------------------------------------------------------------------------	
+// 需要传送的网络消息，都需要在此注册，并且类型不能重复
+// 
+// Client->Server : C2S
+//
+//----------------------------------------------------------------------------------------------------------	
+
+// 类型定义
+enum C2S_Proto_Type {
+	Proto_Stuff_Client_Begin = 1;
+	Proto_Stuff_Account	= 2;
+	Proto_Stuff_GetPlayer = 3;
+	Proto_Stuff_Login = 4;
+}
+
+// 账号信息
+message Stuff_Account {
+	optional C2S_Proto_Type type_t = 1 [ default = Proto_Stuff_Account ];
+	optional string UserName = 2;
+	optional string PassWord = 3;
+}
+
+// 获取角色信息(供登录界面选择)
+message Stuff_GetPlayer {
+	optional C2S_Proto_Type type_t = 1 [ default = Proto_Stuff_GetPlayer ];
+	optional string UserName = 2;
+	optional int32 PlayerId = 3;
+}
+
+// 登陆信息
+message Stuff_Login {
+	optional C2S_Proto_Type type_t = 1 [ default = Proto_Stuff_Login ];
+	optional Stuff_Account Account = 2;
+}
+
+//----------------------------------------------------------------------------------------------------------	
+// 需要传送的网络消息，都需要在此注册，并且类型不能重复
+// 
+// Server->Client : S2C
+//
+//----------------------------------------------------------------------------------------------------------	
+
+// 类型定义
+enum S2C_Proto_Type {
+	Proto_Stuff_Server_Begin = 1;
+	Proto_Stuff_Player = 2;
+	Proto_Stuff_Players = 3;
+}
+
+// 玩家信息
+message Stuff_Player {
+	optional S2C_Proto_Type type_t = 1 [ default = Proto_Stuff_Player ];
+	required int32 PlayerId = 2;
+	optional Stuff_Vector3 Position = 3;
+	optional Creature_Variety Variety = 4 [ default = CV_Player ];
+	optional int32 NationId	= 5;
+	optional int32 MafiaId = 6;
+	repeated Stuff_Inventory Inventory = 7;
+	repeated Stuff_Limit Limits	= 8;
+}
+
+// 玩家列表
+message Stuff_Players {
+	optional S2C_Proto_Type type_t = 1		[ default = Proto_Stuff_Players ];
+	required string UserName = 2;
+	repeated int32 Players = 3;
+}
+
+message Stuff_Limit {
+	optional int32 LimitId = 1;
+	optional int32 StartTime = 2;
+}
+
+// 生物列表
+message Stuff_Creatures {
+	repeated Stuff_Creature contents = 1;
+}
+
+message Stuff_Creature {
+	optional int32 CreatureId = 1;
+	optional Creature_Variety Variety = 2;
+	optional Stuff_Vector3 Position = 3;
+}
+//----------------------------------------------------------------------------------------------------------	
+// 物品定义
+//
+//----------------------------------------------------------------------------------------------------------	
+
+// 类型定义
+enum Item_Type {
+	Data_Item_Medichine = 1;
+	Data_Item_Mine = 2;
+}
+
+message Item_Medichine {
+	optional Item_Type type_t = 1 [ default = Data_Item_Medichine ];
+	required uint32 tid = 2;
+	optional string name = 3;
+	optional uint32 cool_time = 4;
+	optional uint32 cool_type = 5;
+	optional int32 mode = 6;
+	optional int32 time = 7;
+}
+
+message Item_Mine {
+	optional Item_Type type_t = 1 [ default = Data_Item_Mine ];
+	required uint32 tid = 2;
+	optional string name = 3;
+	optional uint32 cool_time = 4;
+	optional uint32 cool_type = 5;
+	optional int32 mode = 6;
+	optional int32 time = 7;
+}
+
+//----------------------------------------------------------------------------------------------------------	
+// 配置，需要保存的数据格式
+//
+//----------------------------------------------------------------------------------------------------------	
+message Config_Path {
+	optional string path = 1;
+	optional string svn_path = 2;
+}
+
+// 通用限制
+message Config_Limit {
+	enum Clear_Time {
+		Year = 1;
+		Month = 2;
+		Day = 3;
+		Hour = 4;
+	}
+	optional int32 TId = 1;
+	optional Clear_Time type_t = 2;
+	optional int32 LimitTimes = 3;
+}

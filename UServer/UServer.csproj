@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3BB4DE3A-ABED-4659-AAA4-41EF57DA2A00}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UServer</RootNamespace>
+    <AssemblyName>UServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>Lib\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack">
+      <HintPath>Lib\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>Lib\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis.Tests">
+      <HintPath>Lib\ServiceStack.Redis.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ServiceStack.Text">
+      <HintPath>lib\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common">
+      <HintPath>lib\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Dlr">
+      <HintPath>lib\SuperSocket.Dlr.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility">
+      <HintPath>lib\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ServerManager">
+      <HintPath>lib\SuperSocket.ServerManager.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase">
+      <HintPath>lib\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine">
+      <HintPath>lib\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.WebSocket">
+      <HintPath>lib\SuperSocket.WebSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Client">
+      <HintPath>lib\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>lib\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Chat\ChatManager.cs" />
+    <Compile Include="Config\ConfignManager.cs" />
+    <Compile Include="Database\DataBaseManager.cs" />
+    <Compile Include="Database\RedisConfigInfo.cs" />
+    <Compile Include="Database\RedisManager.cs" />
+    <Compile Include="Database\RedisOperatorBase.cs" />
+    <Compile Include="Event\BaseEvent.cs" />
+    <Compile Include="Event\EventManager.cs" />
+    <Compile Include="Log\LogWriter.cs" />
+    <Compile Include="Logic\Player.cs" />
+    <Compile Include="Logic\Scene.cs" />
+    <Compile Include="Logic\SceneManager.cs" />
+    <Compile Include="Logic\Vector3.cs" />
+    <Compile Include="Logic\Creature.cs" />
+    <Compile Include="Logic\MQManager.cs" />
+    <Compile Include="Logic\LogicServer.cs" />
+    <Compile Include="Network\SessiongManager.cs" />
+    <Compile Include="Network\ClientReceiveFilter.cs" />
+    <Compile Include="Pb\Share_Common.cs" />
+    <Compile Include="Protobuf-net\BclHelpers.cs" />
+    <Compile Include="Protobuf-net\BufferExtension.cs" />
+    <Compile Include="Protobuf-net\BufferPool.cs" />
+    <Compile Include="Protobuf-net\CallbackAttributes.cs" />
+    <Compile Include="Protobuf-net\DataFormat.cs" />
+    <Compile Include="Protobuf-net\Extensible.cs" />
+    <Compile Include="Protobuf-net\ExtensibleUtil.cs" />
+    <Compile Include="Protobuf-net\GlobalSuppressions.cs" />
+    <Compile Include="Protobuf-net\Helpers.cs" />
+    <Compile Include="Protobuf-net\IExtensible.cs" />
+    <Compile Include="Protobuf-net\IExtension.cs" />
+    <Compile Include="Protobuf-net\ImplicitFields.cs" />
+    <Compile Include="Protobuf-net\KeyValuePairProxy.cs" />
+    <Compile Include="Protobuf-net\NetObjectCache.cs" />
+    <Compile Include="Protobuf-net\PrefixStyle.cs" />
+    <Compile Include="Protobuf-net\ProtoContractAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoConverterAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoEnumAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoException.cs" />
+    <Compile Include="Protobuf-net\ProtoIgnoreAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoIncludeAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoMemberAttribute.cs" />
+    <Compile Include="Protobuf-net\ProtoReader.cs" />
+    <Compile Include="Protobuf-net\ProtoWriter.cs" />
+    <Compile Include="Protobuf-net\SerializationContext.cs" />
+    <Compile Include="Protobuf-net\Serializer.cs" />
+    <Compile Include="Protobuf-net\SubItemToken.cs" />
+    <Compile Include="Protobuf-net\WireType.cs" />
+    <Compile Include="Protobuf-net\Compiler\CompilerContext.cs" />
+    <Compile Include="Protobuf-net\Compiler\CompilerDelegates.cs" />
+    <Compile Include="Protobuf-net\Compiler\Local.cs" />
+    <Compile Include="Protobuf-net\Meta\AttributeMap.cs" />
+    <Compile Include="Protobuf-net\Meta\BasicList.cs" />
+    <Compile Include="Protobuf-net\Meta\CallbackSet.cs" />
+    <Compile Include="Protobuf-net\Meta\MetaType.cs" />
+    <Compile Include="Protobuf-net\Meta\RuntimeTypeModel.cs" />
+    <Compile Include="Protobuf-net\Meta\SubType.cs" />
+    <Compile Include="Protobuf-net\Meta\TypeFormatEventArgs.cs" />
+    <Compile Include="Protobuf-net\Meta\TypeModel.cs" />
+    <Compile Include="Protobuf-net\Meta\ValueMember.cs" />
+    <Compile Include="Protobuf-net\Properties\AssemblyInfo.cs" />
+    <Compile Include="Protobuf-net\Serializers\ArrayDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\BlobSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\BooleanSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\ByteSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\CharSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\CompiledSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\DateTimeSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\DecimalSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\DefaultValueDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\DoubleSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\EnumSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\FieldDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\GuidSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\ImmutableCollectionDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\Int16Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\Int32Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\Int64Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\IProtoSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\IProtoTypeSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\ISerializerProxy.cs" />
+    <Compile Include="Protobuf-net\Serializers\KeyValuePairDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\ListDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\MemberSpecifiedDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\NetObjectSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\NullDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\ParseableSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\PropertyDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\ProtoDecoratorBase.cs" />
+    <Compile Include="Protobuf-net\Serializers\SByteSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\SingleSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\StringSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\SubItemSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\SurrogateSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\SystemTypeSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\TagDecorator.cs" />
+    <Compile Include="Protobuf-net\Serializers\TimeSpanSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\TupleSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\TypeSerializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\UInt16Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\UInt32Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\UInt64Serializer.cs" />
+    <Compile Include="Protobuf-net\Serializers\UriDecorator.cs" />
+    <Compile Include="Protobuf-net\ServiceModel\ProtoBehaviorAttribute.cs" />
+    <Compile Include="Protobuf-net\ServiceModel\ProtoBehaviorExtensionElement.cs" />
+    <Compile Include="Protobuf-net\ServiceModel\ProtoEndpointBehavior.cs" />
+    <Compile Include="Protobuf-net\ServiceModel\ProtoOperationBehavior.cs" />
+    <Compile Include="Protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="Share\BaseThread.cs" />
+    <Compile Include="Share\ByteBuffer.cs" />
+    <Compile Include="Share\ProtoUtil.cs" />
+    <Compile Include="Share\Protocal.cs" />
+    <Compile Include="Share\UtilTools.cs" />
+    <Compile Include="Task\TaskInterface.cs" />
+    <Compile Include="Template\TemplateManager.cs" />
+    <Compile Include="Trrain\Grid.cs" />
+    <Compile Include="Trrain\Scene.cs" />
+    <Compile Include="Trrain\SceneManager.cs" />
+    <Compile Include="Trrain\Slice.cs" />
+    <Compile Include="Network\Session.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Chat\" />
+    <Folder Include="Config\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\map\" />
+    <Folder Include="Database\" />
+    <Folder Include="Event\" />
+    <Folder Include="Lib\" />
+    <Folder Include="Log\" />
+    <Folder Include="Logic\" />
+    <Folder Include="Network\" />
+    <Folder Include="Pb\" />
+    <Folder Include="Protobuf-net\" />
+    <Folder Include="Share\" />
+    <Folder Include="Task\" />
+    <Folder Include="Template\" />
+    <Folder Include="Trrain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Data\Medichine\大经验丹" />
+    <None Include="Data\Mine\矿" />
+    <None Include="Data\map\npcs.xml" />
+    <None Include="Lib\ServiceStack.Client.dll" />
+    <None Include="Lib\ServiceStack.Client.xml" />
+    <None Include="Lib\ServiceStack.Common.dll" />
+    <None Include="Lib\ServiceStack.Common.xml" />
+    <None Include="Lib\ServiceStack.Interfaces.dll" />
+    <None Include="Lib\ServiceStack.Interfaces.dll.mdb" />
+    <None Include="Lib\ServiceStack.Redis.Tests.dll" />
+    <None Include="Lib\ServiceStack.Redis.dll" />
+    <None Include="Lib\ServiceStack.Text.4.0.0.nupkg" />
+    <None Include="Lib\ServiceStack.Text.4.0.0.symbols.nupkg" />
+    <None Include="Lib\ServiceStack.Text.XML" />
+    <None Include="Lib\ServiceStack.Text.dll" />
+    <None Include="Lib\ServiceStack.dll" />
+    <None Include="Lib\ServiceStack.xml" />
+    <None Include="Lib\nunit.framework.xml" />
+    <None Include="Lib\protobuf-net.dll" />
+    <None Include="Lib\protobuf-net.pdb" />
+    <None Include="Logic\NpcList.xml" />
+    <None Include="Pb\Share_Common.proto" />
+    <None Include="Protobuf-net\project.json" />
+    <None Include="Protobuf-net\project.lock.json" />
+    <None Include="Protobuf-net\protobuf-net.csproj" />
+    <None Include="Protobuf-net\protobuf_net.xproj" />
+    <None Include="Protobuf-net\Web\TODO.txt" />
+  </ItemGroup>
+</Project>
