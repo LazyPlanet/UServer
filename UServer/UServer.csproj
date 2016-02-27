@@ -34,59 +34,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="ServiceStack.Common">
-      <HintPath>Lib\ServiceStack.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack">
-      <HintPath>Lib\ServiceStack.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Redis">
-      <HintPath>Lib\ServiceStack.Redis.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Redis.Tests">
-      <HintPath>Lib\ServiceStack.Redis.Tests.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="ServiceStack.Text">
-      <HintPath>lib\ServiceStack.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.Common">
-      <HintPath>lib\SuperSocket.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.Dlr">
-      <HintPath>lib\SuperSocket.Dlr.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.Facility">
-      <HintPath>lib\SuperSocket.Facility.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.ServerManager">
-      <HintPath>lib\SuperSocket.ServerManager.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.SocketBase">
-      <HintPath>lib\SuperSocket.SocketBase.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.SocketEngine">
-      <HintPath>lib\SuperSocket.SocketEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="SuperSocket.WebSocket">
-      <HintPath>lib\SuperSocket.WebSocket.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>lib\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Client">
-      <HintPath>lib\ServiceStack.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Interfaces">
-      <HintPath>lib\ServiceStack.Interfaces.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Chat\ChatManager.cs" />
@@ -248,7 +195,6 @@
     <None Include="Lib\ServiceStack.dll" />
     <None Include="Lib\ServiceStack.xml" />
     <None Include="Lib\nunit.framework.xml" />
-    <None Include="Lib\protobuf-net.dll" />
     <None Include="Lib\protobuf-net.pdb" />
     <None Include="Logic\NpcList.xml" />
     <None Include="Pb\Share_Common.proto" />
@@ -257,5 +203,68 @@
     <None Include="Protobuf-net\protobuf-net.csproj" />
     <None Include="Protobuf-net\protobuf_net.xproj" />
     <None Include="Protobuf-net\Web\TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>Lib\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Client">
+      <HintPath>Lib\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Lib\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>Lib\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack">
+      <HintPath>Lib\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>Lib\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>Lib\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis.Tests">
+      <HintPath>Lib\ServiceStack.Redis.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>lib\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Common">
+      <HintPath>Lib\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Dlr">
+      <HintPath>Lib\SuperSocket.Dlr.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.Facility">
+      <HintPath>Lib\SuperSocket.Facility.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ServerManager">
+      <HintPath>Lib\SuperSocket.ServerManager.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase">
+      <HintPath>Lib\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine">
+      <HintPath>Lib\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.WebSocket">
+      <HintPath>Lib\SuperSocket.WebSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System" />
   </ItemGroup>
 </Project>

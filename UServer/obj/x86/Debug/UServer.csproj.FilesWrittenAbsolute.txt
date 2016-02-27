@@ -21,3 +21,4 @@
 /Users/lazy/Game/GitHub/UServer/UServer/Bin/Debug/ServiceStack.Interfaces.dll
 /Users/lazy/Game/GitHub/UServer/UServer/Bin/Debug/Microsoft.Scripting.dll
 /Users/lazy/Game/GitHub/UServer/UServer/Bin/Debug/Newtonsoft.Json.dll
+/Users/lazy/Game/GitHub/UServer/UServer/Bin/Debug/protobuf-net.dll
