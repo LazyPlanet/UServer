@@ -6,65 +6,67 @@ EXTRA_DIST =
 if ENABLE_DEBUG_X86
 ASSEMBLY_COMPILER_COMMAND = dmcs
 ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -unsafe -warn:4 -optimize- -debug "-define:DEBUG"
-ASSEMBLY = bin/Debug/UServer.exe
+ASSEMBLY = Bin/Debug/UServer.exe
 ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = exe
 PROJECT_REFERENCES = 
-BUILD_DIR = bin/Debug
+BUILD_DIR = Bin/Debug
 
-USERVER_EXE_MDB_SOURCE=bin/Debug/UServer.exe.mdb
+USERVER_EXE_MDB_SOURCE=Bin/Debug/UServer.exe.mdb
 USERVER_EXE_MDB=$(BUILD_DIR)/UServer.exe.mdb
 USERVER_EXE_CONFIG_SOURCE=App.config
-SERVICESTACK_COMMON_DLL_SOURCE=Lib/ServiceStack.Common.dll
+LOG4NET_DLL_SOURCE=Lib/log4net.dll
+MICROSOFT_SCRIPTING_DLL_SOURCE=Lib/Microsoft.Scripting.dll
+NEWTONSOFT_JSON_DLL_SOURCE=Lib/Newtonsoft.Json.dll
+SERVICESTACK_CLIENT_DLL_SOURCE=Lib/ServiceStack.Client.dll
 SERVICESTACK_INTERFACES_DLL_SOURCE=Lib/ServiceStack.Interfaces.dll
 SERVICESTACK_INTERFACES_DLL_MDB_SOURCE=Lib/ServiceStack.Interfaces.dll.mdb
 SERVICESTACK_TEXT_DLL_SOURCE=Lib/ServiceStack.Text.dll
+PROTOBUF_NET_DLL_SOURCE=Lib/protobuf-net.dll
+SERVICESTACK_COMMON_DLL_SOURCE=Lib/ServiceStack.Common.dll
 SERVICESTACK_DLL_SOURCE=Lib/ServiceStack.dll
-SERVICESTACK_CLIENT_DLL_SOURCE=Lib/ServiceStack.Client.dll
 SERVICESTACK_REDIS_DLL_SOURCE=Lib/ServiceStack.Redis.dll
 SERVICESTACK_REDIS_TESTS_DLL_SOURCE=Lib/ServiceStack.Redis.Tests.dll
-SUPERSOCKET_COMMON_DLL_SOURCE=lib/SuperSocket.Common.dll
-SUPERSOCKET_DLR_DLL_SOURCE=lib/SuperSocket.Dlr.dll
-SUPERSOCKET_SOCKETBASE_DLL_SOURCE=lib/SuperSocket.SocketBase.dll
-LOG4NET_DLL_SOURCE=lib/log4net.dll
-MICROSOFT_SCRIPTING_DLL_SOURCE=lib/Microsoft.Scripting.dll
-SUPERSOCKET_FACILITY_DLL_SOURCE=lib/SuperSocket.Facility.dll
-SUPERSOCKET_SERVERMANAGER_DLL_SOURCE=lib/SuperSocket.ServerManager.dll
-SUPERSOCKET_WEBSOCKET_DLL_SOURCE=lib/SuperSocket.WebSocket.dll
-NEWTONSOFT_JSON_DLL_SOURCE=lib/Newtonsoft.Json.dll
-SUPERSOCKET_SOCKETENGINE_DLL_SOURCE=lib/SuperSocket.SocketEngine.dll
+SUPERSOCKET_COMMON_DLL_SOURCE=Lib/SuperSocket.Common.dll
+SUPERSOCKET_DLR_DLL_SOURCE=Lib/SuperSocket.Dlr.dll
+SUPERSOCKET_SOCKETBASE_DLL_SOURCE=Lib/SuperSocket.SocketBase.dll
+SUPERSOCKET_FACILITY_DLL_SOURCE=Lib/SuperSocket.Facility.dll
+SUPERSOCKET_SERVERMANAGER_DLL_SOURCE=Lib/SuperSocket.ServerManager.dll
+SUPERSOCKET_WEBSOCKET_DLL_SOURCE=Lib/SuperSocket.WebSocket.dll
+SUPERSOCKET_SOCKETENGINE_DLL_SOURCE=Lib/SuperSocket.SocketEngine.dll
 
 endif
 
 if ENABLE_RELEASE_X86
 ASSEMBLY_COMPILER_COMMAND = dmcs
 ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -unsafe -warn:4 -optimize+
-ASSEMBLY = bin/Release/UServer.exe
+ASSEMBLY = Bin/Release/UServer.exe
 ASSEMBLY_MDB = 
 COMPILE_TARGET = exe
 PROJECT_REFERENCES = 
-BUILD_DIR = bin/Release
+BUILD_DIR = Bin/Release
 
 USERVER_EXE_MDB=
 USERVER_EXE_CONFIG_SOURCE=App.config
-SERVICESTACK_COMMON_DLL_SOURCE=Lib/ServiceStack.Common.dll
+LOG4NET_DLL_SOURCE=Lib/log4net.dll
+MICROSOFT_SCRIPTING_DLL_SOURCE=Lib/Microsoft.Scripting.dll
+NEWTONSOFT_JSON_DLL_SOURCE=Lib/Newtonsoft.Json.dll
+SERVICESTACK_CLIENT_DLL_SOURCE=Lib/ServiceStack.Client.dll
 SERVICESTACK_INTERFACES_DLL_SOURCE=Lib/ServiceStack.Interfaces.dll
 SERVICESTACK_INTERFACES_DLL_MDB_SOURCE=Lib/ServiceStack.Interfaces.dll.mdb
 SERVICESTACK_TEXT_DLL_SOURCE=Lib/ServiceStack.Text.dll
+PROTOBUF_NET_DLL_SOURCE=Lib/protobuf-net.dll
+SERVICESTACK_COMMON_DLL_SOURCE=Lib/ServiceStack.Common.dll
 SERVICESTACK_DLL_SOURCE=Lib/ServiceStack.dll
-SERVICESTACK_CLIENT_DLL_SOURCE=Lib/ServiceStack.Client.dll
 SERVICESTACK_REDIS_DLL_SOURCE=Lib/ServiceStack.Redis.dll
 SERVICESTACK_REDIS_TESTS_DLL_SOURCE=Lib/ServiceStack.Redis.Tests.dll
-SUPERSOCKET_COMMON_DLL_SOURCE=lib/SuperSocket.Common.dll
-SUPERSOCKET_DLR_DLL_SOURCE=lib/SuperSocket.Dlr.dll
-SUPERSOCKET_SOCKETBASE_DLL_SOURCE=lib/SuperSocket.SocketBase.dll
-LOG4NET_DLL_SOURCE=lib/log4net.dll
-MICROSOFT_SCRIPTING_DLL_SOURCE=lib/Microsoft.Scripting.dll
-SUPERSOCKET_FACILITY_DLL_SOURCE=lib/SuperSocket.Facility.dll
-SUPERSOCKET_SERVERMANAGER_DLL_SOURCE=lib/SuperSocket.ServerManager.dll
-SUPERSOCKET_WEBSOCKET_DLL_SOURCE=lib/SuperSocket.WebSocket.dll
-NEWTONSOFT_JSON_DLL_SOURCE=lib/Newtonsoft.Json.dll
-SUPERSOCKET_SOCKETENGINE_DLL_SOURCE=lib/SuperSocket.SocketEngine.dll
+SUPERSOCKET_COMMON_DLL_SOURCE=Lib/SuperSocket.Common.dll
+SUPERSOCKET_DLR_DLL_SOURCE=Lib/SuperSocket.Dlr.dll
+SUPERSOCKET_SOCKETBASE_DLL_SOURCE=Lib/SuperSocket.SocketBase.dll
+SUPERSOCKET_FACILITY_DLL_SOURCE=Lib/SuperSocket.Facility.dll
+SUPERSOCKET_SERVERMANAGER_DLL_SOURCE=Lib/SuperSocket.ServerManager.dll
+SUPERSOCKET_WEBSOCKET_DLL_SOURCE=Lib/SuperSocket.WebSocket.dll
+SUPERSOCKET_SOCKETENGINE_DLL_SOURCE=Lib/SuperSocket.SocketEngine.dll
 
 endif
 
@@ -74,23 +76,24 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 PROGRAMFILES = \
 	$(USERVER_EXE_MDB) \
 	$(USERVER_EXE_CONFIG) \
-	$(SERVICESTACK_COMMON_DLL) \
+	$(LOG4NET_DLL) \
+	$(MICROSOFT_SCRIPTING_DLL) \
+	$(NEWTONSOFT_JSON_DLL) \
+	$(SERVICESTACK_CLIENT_DLL) \
 	$(SERVICESTACK_INTERFACES_DLL) \
 	$(SERVICESTACK_INTERFACES_DLL_MDB) \
 	$(SERVICESTACK_TEXT_DLL) \
+	$(PROTOBUF_NET_DLL) \
+	$(SERVICESTACK_COMMON_DLL) \
 	$(SERVICESTACK_DLL) \
-	$(SERVICESTACK_CLIENT_DLL) \
 	$(SERVICESTACK_REDIS_DLL) \
 	$(SERVICESTACK_REDIS_TESTS_DLL) \
 	$(SUPERSOCKET_COMMON_DLL) \
 	$(SUPERSOCKET_DLR_DLL) \
 	$(SUPERSOCKET_SOCKETBASE_DLL) \
-	$(LOG4NET_DLL) \
-	$(MICROSOFT_SCRIPTING_DLL) \
 	$(SUPERSOCKET_FACILITY_DLL) \
 	$(SUPERSOCKET_SERVERMANAGER_DLL) \
 	$(SUPERSOCKET_WEBSOCKET_DLL) \
-	$(NEWTONSOFT_JSON_DLL) \
 	$(SUPERSOCKET_SOCKETENGINE_DLL)  
 
 BINARIES = \
@@ -263,7 +266,6 @@ EXTRAS = \
 	Lib/ServiceStack.dll \
 	Lib/ServiceStack.xml \
 	Lib/nunit.framework.xml \
-	Lib/protobuf-net.dll \
 	Lib/protobuf-net.pdb \
 	Protobuf-net/project.json \
 	Protobuf-net/project.lock.json \
@@ -276,16 +278,23 @@ EXTRAS = \
 	userver.in 
 
 REFERENCES =  \
-	System \
+	System.Net \
 	System.Configuration \
-	System.Data \
-	System.Core \
+	System.ComponentModel.Composition \
+	System.ComponentModel.DataAnnotations \
 	System.Drawing \
-	System.Xml
+	System.Core \
+	System
 
 DLL_REFERENCES =  \
+	../../../../../../log4net \
+	../../../../../../Microsoft.Scripting \
+	../../../../../../Newtonsoft.Json \
+	../../../../../../ServiceStack.Client \
+	../../../../../../protobuf-net \
 	../../../../../../ServiceStack.Common \
 	../../../../../../ServiceStack \
+	../../../../../../ServiceStack.Interfaces \
 	../../../../../../ServiceStack.Redis \
 	../../../../../../ServiceStack.Redis.Tests \
 	../../../../../../ServiceStack.Text \
@@ -295,54 +304,53 @@ DLL_REFERENCES =  \
 	../../../../../../SuperSocket.ServerManager \
 	../../../../../../SuperSocket.SocketBase \
 	../../../../../../SuperSocket.SocketEngine \
-	../../../../../../SuperSocket.WebSocket \
-	../../../../../../log4net \
-	../../../../../../ServiceStack.Client \
-	../../../../../../ServiceStack.Interfaces
+	../../../../../../SuperSocket.WebSocket
 
 CLEANFILES = $(PROGRAMFILES) $(BINARIES) 
 
 include $(top_srcdir)/Makefile.include
 
 USERVER_EXE_CONFIG = $(BUILD_DIR)/UServer.exe.config
-SERVICESTACK_COMMON_DLL = $(BUILD_DIR)/ServiceStack.Common.dll
+LOG4NET_DLL = $(BUILD_DIR)/log4net.dll
+MICROSOFT_SCRIPTING_DLL = $(BUILD_DIR)/Microsoft.Scripting.dll
+NEWTONSOFT_JSON_DLL = $(BUILD_DIR)/Newtonsoft.Json.dll
+SERVICESTACK_CLIENT_DLL = $(BUILD_DIR)/ServiceStack.Client.dll
 SERVICESTACK_INTERFACES_DLL = $(BUILD_DIR)/ServiceStack.Interfaces.dll
 SERVICESTACK_INTERFACES_DLL_MDB = $(BUILD_DIR)/ServiceStack.Interfaces.dll.mdb
 SERVICESTACK_TEXT_DLL = $(BUILD_DIR)/ServiceStack.Text.dll
+PROTOBUF_NET_DLL = $(BUILD_DIR)/protobuf-net.dll
+SERVICESTACK_COMMON_DLL = $(BUILD_DIR)/ServiceStack.Common.dll
 SERVICESTACK_DLL = $(BUILD_DIR)/ServiceStack.dll
-SERVICESTACK_CLIENT_DLL = $(BUILD_DIR)/ServiceStack.Client.dll
 SERVICESTACK_REDIS_DLL = $(BUILD_DIR)/ServiceStack.Redis.dll
 SERVICESTACK_REDIS_TESTS_DLL = $(BUILD_DIR)/ServiceStack.Redis.Tests.dll
 SUPERSOCKET_COMMON_DLL = $(BUILD_DIR)/SuperSocket.Common.dll
 SUPERSOCKET_DLR_DLL = $(BUILD_DIR)/SuperSocket.Dlr.dll
 SUPERSOCKET_SOCKETBASE_DLL = $(BUILD_DIR)/SuperSocket.SocketBase.dll
-LOG4NET_DLL = $(BUILD_DIR)/log4net.dll
-MICROSOFT_SCRIPTING_DLL = $(BUILD_DIR)/Microsoft.Scripting.dll
 SUPERSOCKET_FACILITY_DLL = $(BUILD_DIR)/SuperSocket.Facility.dll
 SUPERSOCKET_SERVERMANAGER_DLL = $(BUILD_DIR)/SuperSocket.ServerManager.dll
 SUPERSOCKET_WEBSOCKET_DLL = $(BUILD_DIR)/SuperSocket.WebSocket.dll
-NEWTONSOFT_JSON_DLL = $(BUILD_DIR)/Newtonsoft.Json.dll
 SUPERSOCKET_SOCKETENGINE_DLL = $(BUILD_DIR)/SuperSocket.SocketEngine.dll
 USERVER = $(BUILD_DIR)/userver
 
 $(eval $(call emit-deploy-target,USERVER_EXE_CONFIG))
-$(eval $(call emit-deploy-target,SERVICESTACK_COMMON_DLL))
+$(eval $(call emit-deploy-target,LOG4NET_DLL))
+$(eval $(call emit-deploy-target,MICROSOFT_SCRIPTING_DLL))
+$(eval $(call emit-deploy-target,NEWTONSOFT_JSON_DLL))
+$(eval $(call emit-deploy-target,SERVICESTACK_CLIENT_DLL))
 $(eval $(call emit-deploy-target,SERVICESTACK_INTERFACES_DLL))
 $(eval $(call emit-deploy-target,SERVICESTACK_INTERFACES_DLL_MDB))
 $(eval $(call emit-deploy-target,SERVICESTACK_TEXT_DLL))
+$(eval $(call emit-deploy-target,PROTOBUF_NET_DLL))
+$(eval $(call emit-deploy-target,SERVICESTACK_COMMON_DLL))
 $(eval $(call emit-deploy-target,SERVICESTACK_DLL))
-$(eval $(call emit-deploy-target,SERVICESTACK_CLIENT_DLL))
 $(eval $(call emit-deploy-target,SERVICESTACK_REDIS_DLL))
 $(eval $(call emit-deploy-target,SERVICESTACK_REDIS_TESTS_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_COMMON_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_DLR_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_SOCKETBASE_DLL))
-$(eval $(call emit-deploy-target,LOG4NET_DLL))
-$(eval $(call emit-deploy-target,MICROSOFT_SCRIPTING_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_FACILITY_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_SERVERMANAGER_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_WEBSOCKET_DLL))
-$(eval $(call emit-deploy-target,NEWTONSOFT_JSON_DLL))
 $(eval $(call emit-deploy-target,SUPERSOCKET_SOCKETENGINE_DLL))
 $(eval $(call emit-deploy-wrapper,USERVER,userver,x))
 
